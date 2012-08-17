@@ -1,0 +1,7 @@
+target/
+dependency-reduced-pom.xml
+*.ipr
+*.iws
+*.iml
+pom.xml.releaseBackup
+release.properties
