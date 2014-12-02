@@ -99,6 +99,7 @@
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <manifestEntries>
+                                        <Bundle-ManifestVersion>2</Bundle-ManifestVersion>
                                         <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
                                         <Bundle-Version>${used.osgi.version}</Bundle-Version>
                                         <Bundle-Name>${project.name}</Bundle-Name>
@@ -106,9 +107,7 @@
                                         <Export-Package>
 cucumber.deps.com.thoughtworks.xstream;version=${used.osgi.version},cucumber.deps.com.thoughtworks.xstream.annotations;version=${used.osgi.version},cucumber.deps.com.thoughtworks.xstream.converters;version=${used.osgi.version},cucumber.deps.com.thoughtworks.xstream.converters.reflection;version=${used.osgi.version},cucumber.deps.com.thoughtworks.xstream.core;version=${used.osgi.version},cucumber.deps.com.thoughtworks.xstream.io;version=${used.osgi.version},cucumber.deps.com.thoughtworks.xstream.mapper;version=${used.osgi.version},cucumber.deps.difflib;version=${used.osgi.version},cucumber.deps.com.thoughtworks.xstream.converters.extended;version=${used.osgi.version},cucumber.deps.com.thoughtworks.xstream.converters.enums;version=${used.osgi.version},cucumber.deps.com.thoughtworks.xstream.converters.basic;version=${used.osgi.version}
                                         </Export-Package>
-                                        <Import-Package>
-com.bea.xml.stream;resolution:=optional,com.ctc.wstx.stax;resolution:=optional,javax.security.auth;resolution:=optional,javax.swing;resolution:=optional,javax.swing.plaf;resolution:=optional,javax.xml.datatype;resolution:=optional,javax.xml.namespace;resolution:=optional,javax.xml.parsers;resolution:=optional,javax.xml.stream;resolution:=optional,javax.xml.transform;resolution:=optional,javax.xml.transform.sax;resolution:=optional,javax.xml.transform.stream;resolution:=optional,net.sf.cglib.proxy;resolution:=optional,nu.xom;resolution:=optional,org.codehaus.jettison;resolution:=optional,org.codehaus.jettison.mapped;resolution:=optional,org.dom4j;resolution:=optional,org.dom4j.io;resolution:=optional,org.dom4j.tree;resolution:=optional,org.jdom;resolution:=optional,org.jdom.input;resolution:=optional,org.joda.time;resolution:=optional,org.joda.time.format;resolution:=optional,org.kxml2.io;resolution:=optional,org.w3c.dom;resolution:=optional,org.xml.sax;resolution:=optional,org.xml.sax.helpers;resolution:=optional,org.xmlpull.mxp1;resolution:=optional,org.xmlpull.v1;resolution:=optional,sun.misc;resolution:=optional,sun.reflect;resolution:=optional
-                                        </Import-Package>
+                                        <DynamicImport-Package>*</DynamicImport-Package>
                                     </manifestEntries>
                                 </transformer>
                             </transformers>
