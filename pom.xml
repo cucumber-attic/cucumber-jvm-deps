@@ -28,8 +28,11 @@
         <connection>scm:git:git://github.com/cucumber/cucumber-jvm-deps.git</connection>
         <developerConnection>scm:git:git@github.com:cucumber/cucumber-jvm-deps.git</developerConnection>
         <url>git://github.com/cucumber/cucumber-jvm-deps.git</url>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
+    <properties>
+        <used.osgi.version>${project.version}</used.osgi.version>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>com.thoughtworks.xstream</groupId>
@@ -93,6 +96,21 @@
                                     <shadedPattern>cucumber.deps.difflib</shadedPattern>
                                 </relocation>
                             </relocations>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <manifestEntries>
+                                        <Bundle-ManifestVersion>2</Bundle-ManifestVersion>
+                                        <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
+                                        <Bundle-Version>${used.osgi.version}</Bundle-Version>
+                                        <Bundle-Name>${project.name}</Bundle-Name>
+                                        <Bundle-License>http://xstream.codehaus.org/license.html, http://www.apache.org/licenses/LICENSE-2.0</Bundle-License>
+                                        <Export-Package>
+cucumber.deps.com.thoughtworks.xstream;version=${used.osgi.version},cucumber.deps.com.thoughtworks.xstream.annotations;version=${used.osgi.version},cucumber.deps.com.thoughtworks.xstream.converters;version=${used.osgi.version},cucumber.deps.com.thoughtworks.xstream.converters.reflection;version=${used.osgi.version},cucumber.deps.com.thoughtworks.xstream.core;version=${used.osgi.version},cucumber.deps.com.thoughtworks.xstream.io;version=${used.osgi.version},cucumber.deps.com.thoughtworks.xstream.mapper;version=${used.osgi.version},cucumber.deps.difflib;version=${used.osgi.version},cucumber.deps.com.thoughtworks.xstream.converters.extended;version=${used.osgi.version},cucumber.deps.com.thoughtworks.xstream.converters.enums;version=${used.osgi.version},cucumber.deps.com.thoughtworks.xstream.converters.basic;version=${used.osgi.version}
+                                        </Export-Package>
+                                        <DynamicImport-Package>*</DynamicImport-Package>
+                                    </manifestEntries>
+                                </transformer>
+                            </transformers>
                         </configuration>
                     </execution>
                 </executions>
