@@ -121,22 +121,15 @@ cucumber.deps.com.thoughtworks.xstream;version=${used.osgi.version},cucumber.dep
                 <version>2.10.3</version>
                 <executions>
                     <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                        <configuration>
-                            <additionalparam>-Xdoclint:none</additionalparam>
-                        </configuration>
-                    </execution>
-                    <execution>
                         <id>javadoc-jar</id>
                         <phase>package</phase>
                         <goals>
                             <goal>jar</goal>
                         </goals>
                         <configuration>
-                            <includeDependencySources>true</includeDependencySources>
+                            <includeDependencySources>false</includeDependencySources>
+                            <additionalparam>-Xdoclint:none</additionalparam>
+                            <failOnError>false</failOnError>
                         </configuration>
                     </execution>
                 </executions>
