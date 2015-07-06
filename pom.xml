@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>info.cukes</groupId>
     <artifactId>cucumber-jvm-deps</artifactId>
-    <version>1.0.4-SNAPSHOT</version>
+    <version>1.0.4</version>
     <name>Cucumber-JVM Repackaged Dependencies</name>
     <url>https://github.com/cucumber/cucumber-jvm-deps</url>
     <parent>
@@ -28,7 +28,7 @@
         <connection>scm:git:git://github.com/cucumber/cucumber-jvm-deps.git</connection>
         <developerConnection>scm:git:git@github.com:cucumber/cucumber-jvm-deps.git</developerConnection>
         <url>git://github.com/cucumber/cucumber-jvm-deps.git</url>
-        <tag>HEAD</tag>
+        <tag>v1.0.4</tag>
     </scm>
     <properties>
         <used.osgi.version>${project.version}</used.osgi.version>
@@ -120,6 +120,15 @@ cucumber.deps.com.thoughtworks.xstream;version=${used.osgi.version},cucumber.dep
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>2.10.3</version>
                 <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <additionalparam>-Xdoclint:none</additionalparam>
+                        </configuration>
+                    </execution>
                     <execution>
                         <id>javadoc-jar</id>
                         <phase>package</phase>
