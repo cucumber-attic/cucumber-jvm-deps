@@ -85,6 +85,15 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
+                            <filters>
+                                <filter>
+                                    <artifact>com.thoughtworks.xstream:xstream</artifact>
+                                    <excludes>
+                                        <exclude>com/thoughtworks/xstream/mapper/LambdaMapper.class</exclude>
+                                        <exclude>com/thoughtworks/xstream/converters/reflection/LambdaConverter.class</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
                             <createSourcesJar>true</createSourcesJar>
                             <relocations>
                                 <relocation>
